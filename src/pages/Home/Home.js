@@ -10,6 +10,7 @@ const Home = () => {
   const [selectedPrice, setSelectedPrice] = useState([1000, 5000]);
   const [allListItem, setAllListItem] = useState(dataList);
   const [searchInput, setSearchInput] = useState("");
+  const [inputSearch, setInputSearch] = useState("");
   const [selectCusines, setSelectCusines] = useState([
     { id: 1, checked: false, label: "american" },
     { id: 2, checked: false, label: "italian" },
@@ -90,6 +91,7 @@ const Home = () => {
     setSelectedPrice([1000, 5000]);
     setAllListItem(dataList);
     setSearchInput("");
+    setInputSearch("");
     setSelectCusines([
       { id: 1, checked: false, label: "american" },
       { id: 2, checked: false, label: "italian" },
@@ -99,7 +101,11 @@ const Home = () => {
 
   return (
     <div className="flex flex-col h-screen">
-      <SearchBar value={searchInput} changeInput={(e) => setSearchInput(e.target.value)} />
+      <SearchBar
+        inputSearch={inputSearch}
+        setInputSearch={setInputSearch}
+        changeInput={(e) => setSearchInput(e.target.value)}
+      />
 
       <div className="flex flex-1 overflow-y-auto ">
         <div className=" basis-[280px] overflow-y-auto  border-r border-solid ">
